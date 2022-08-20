@@ -28,8 +28,6 @@ export class ThemeComponent implements OnInit {
 
   initializeTheme = (): void =>
     this.renderer.addClass(this.document.body, this.theme);
-    localStorage.setItem('theme', this.theme);
-
 }
 
 export type Theme = 'light-theme' | 'dark-theme';
