@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <input
+      class="form-control mt-4"
+      type="text"
+      name="search"
+      [(ngModel)]="searchText"
+      autocomplete="off"
+      placeholder="&#61442;  Start searching"
+    />
+    <div
+      class="col-md-4 col-sm-1 pt-4"
+      #card
+      *ngFor="let item of items | filter: searchText; let i = index"
+    >
+      <div class="card card-2" style="width: 18rem;">
+        <div class="text-center">
+          <img
+            class="card-img-top"
+            [src]="item.src"
+            alt="Card image cap"
+            class="card-image"
+            style="height:250px;"
+          />
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title">{{ item.cardTitle }}</h5>
+          <p class="card-text">
+            {{ item.desc }}
+          </p>
+          <button class="btn btn-success" (click)="deleteCard(i)">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
